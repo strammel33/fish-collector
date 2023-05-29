@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Fish
 
 # Create your views here.
@@ -16,3 +17,7 @@ def fish_index(request):
 def fish_detail(request, fish_id):
   fish = Fish.objects.get(id=fish_id)
   return render(request, 'fishes/detail.html', { 'fish':fish })
+
+class FishCreate(CreateView):
+  model = Fish
+  fields = '__all__'
