@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="logo-container">
+  <div class="fish-container">
+    <img src="{% static 'images/puffer.png' %}" alt="The Fish Collector Fish">
+  </div>
+  <img src="{% static '' %}" alt="Text Reads: Fish Collector (logo)">
+</section>
+
+{% endblock %}

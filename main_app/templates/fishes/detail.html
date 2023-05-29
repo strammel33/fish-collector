@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/fishes/fish-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+<section class="fish-container">
+  <div class="fish-image">
+    <img src="{% static 'images/striped-fish.png' %}" alt="A striped fish">
+  </div>
+  <div class="fish-details">
+    <h1>{{ fish.name }}</h1>
+    {% if fish.age > 0 %}
+      <h2>A {{ fish.age }} year old {{ fish.species }}.</h2>
+    {% else %}
+      <h2>A {{ fish.species }} baby.</h2>
+    {% endif %}
+      <p>{{ fish.description }}</p>
+  </div>
+</section>
+{% endblock %}

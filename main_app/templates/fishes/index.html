@@ -18,21 +18,23 @@
 <section class="card-container">
   {% for fish in fishes %}
     <div class="card">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/striped-fish.png' %}" 
-            alt="A striped fish"
-          >
+      <a href="{% url 'fish-detail' fish.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img 
+              src="{% static 'images/striped-fish.png' %}" 
+              alt="A striped fish"
+            >
+          </div>
+          <h2 class="card-title">{{ fish.name }}</h2>
+          {% if fish.age > 0 %}
+            <p>A {{ fish.age }} year old {{ fish.species }}</p>
+          {% else %}
+            <p>A {{ fish.species }} baby.</p>
+          {% endif %}
+          <p><small>{{ fish.description }}</small></p>
         </div>
-        <h2 class="card-title">{{ fish.name }}</h2>
-        {% if fish.age > 0 %}
-          <p>A {{ fish.age }} year old {{ fish.species }}</p>
-        {% else %}
-          <p>A {{ fish.species }} baby.</p>
-        {% endif %}
-        <p><small>{{ fish.description }}</small></p>
-      </div>
+      </a>
     </div>
   {% endfor %}
 </section>
