@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Fish
 
 # Create your views here.
@@ -21,3 +21,11 @@ def fish_detail(request, fish_id):
 class FishCreate(CreateView):
   model = Fish
   fields = '__all__'
+
+class FishUpdate(UpdateView):
+  model = Fish
+  fields = ['species', 'description', 'age']
+
+class FishDelete(DeleteView):
+  model = Fish
+  success_url = '/fishes/'
