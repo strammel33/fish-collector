@@ -9,5 +9,5 @@ urlpatterns = [
   path('fishes/create/', views.FishCreate.as_view(), name='fish-create'),
   path('fishes/<int:pk>/update/', views.FishUpdate.as_view(), name='fish-update'),
   path('fishes/<int:pk>/delete/', views.FishDelete.as_view(), name='fish-delete'),
-  
+  path('fishes/<int:fish_id>/add-exercise', views.add_exercise, name='add-exercise'),
 ]

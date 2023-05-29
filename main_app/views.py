@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Fish
+from .forms import ExerciseForm
 
 # Create your views here.
 
@@ -16,7 +17,17 @@ def fish_index(request):
 
 def fish_detail(request, fish_id):
   fish = Fish.objects.get(id=fish_id)
-  return render(request, 'fishes/detail.html', { 'fish':fish })
+  exercise_form = ExerciseForm()
+  return render(request, 'fishes/detail.html', { 
+    'fish': fish, 'exercise_form': exercise_form })
+
+def add_exercise(request, fish_id):
+  form = ExerciseForm(request.POST)
+  if form.is_valid():
+    new_exercise = form.save(commit=False)
+    new_exercise.fish_id = fish_id
+    new_exercise.save()
+  return redirect('fish-detail', fish_id=fish_id)
 
 class FishCreate(CreateView):
   model = Fish
