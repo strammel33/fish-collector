@@ -24,7 +24,7 @@
   margin-top: 20px;
 }
 
-.exercise-toy-container {
+.exercise-candy-container {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -41,7 +41,7 @@
   margin: 0 8px;
 }
 
-.toy-container {
+.candy-container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -56,19 +56,19 @@
 
 .not-exercised,
 .exercised,
-.no-toys,
-.all-toys {
+.no-candies,
+.all-candies {
   margin: 0;
   font-weight: bold;
 }
 
 .not-exercised,
-.no-toys {
+.no-candies {
   color: var(--danger);
 }
 
 .exercised,
-.all-toys {
+.all-candies {
   color: var(--submit);
 }
 
@@ -94,7 +94,7 @@
   margin: 5px 0;
 }
 
-.exercise-toy-container > section {
+.exercise-candy-container > section {
   width: 80%;
   min-width: 360px;
   border: var(--borders);
@@ -117,13 +117,13 @@
 }
 
 .exercises h2,
-.toys h2 {
+.candies h2 {
   font-size: 3.2rem;
   margin: 0;
 }
 
 .exercises h3,
-.toys h3 {
+.candies h3 {
   font-size: var(--font-xl);
   margin: 10px 0;
 }
@@ -162,16 +162,16 @@
   background-color: #f3f3fd;
 }
 
-.toy-container p {
+.candy-container p {
   margin: 12px 0;
 }
 
-.toy-container a {
+.candy-container a {
   text-decoration: none;
   color: #111;
 }
 
-.toy-container .btn {
+.candy-container .btn {
   padding: 3px 10px;
   margin-left: 10px;
 }
@@ -201,19 +201,19 @@
     margin-right: 25px;
   }
 
-  .exercise-toy-container {
+  .exercise-candy-container {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
   }
 
-  .exercise-toy-container > section {
+  .exercise-candy-container > section {
     width: 45%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .exercise-toy-container {
+  .exercise-candy-container {
     padding: 0 40px;
   }
 }

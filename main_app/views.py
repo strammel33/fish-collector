@@ -32,7 +32,7 @@ def add_exercise(request, fish_id):
 
 class FishCreate(CreateView):
   model = Fish
-  fields = '__all__'
+  fields = ['name', 'species', 'description', 'age']
 
 class FishUpdate(UpdateView):
   model = Fish

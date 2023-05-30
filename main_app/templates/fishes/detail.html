@@ -38,7 +38,7 @@
       </div>
   </div>
 </section>
-<div class="exercise-toy-container">
+<div class="exercise-candy-container">
   <section class="exercises">
     <div class="subsection-title">
       <h2>Workouts</h2>
@@ -78,6 +78,30 @@
         <p>{{fish.name}} doesn't exercise 😥</p>
       </div>
     {% endif %}
+  </section>
+  <section class="candies">
+    <div class="subsection-title">
+      <h2>Candies</h2>
+    </div>
+    <h3>{{ fish.name }}'s Candies</h3>
+    <div class="subsection-content">
+      {% if fish.candies.count %}
+        {% for candy in fish.candies.all %}
+          <div class="candy-container">
+            <div class="color-block" style="background-color: {{ candy.color }}"></div>
+            <a href="{% url 'candy-detail' candy.id %}">
+              <p>A {{ candy.color }} {{ candy.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-candies">{{ fish.name }} doesn't have any candy 😔</p>
+      {% endif %}
+    </div>
+    <h3>Available Candies</h3>
+    <div class="subsection-content">
+
+    </div>
   </section>
 </div>
 {% endblock %}
