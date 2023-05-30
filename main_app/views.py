@@ -32,6 +32,10 @@ def add_exercise(request, fish_id):
     new_exercise.save()
   return redirect('fish-detail', fish_id=fish_id)
 
+def assoc_candy(request, fish_id, candy_id):
+  Fish.objects.get(id=fish_id).candies.add(candy_id)
+  return redirect('fish-detail', fish_id=fish_id)
+
 class FishCreate(CreateView):
   model = Fish
   fields = ['name', 'species', 'description', 'age']
