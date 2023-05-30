@@ -100,7 +100,24 @@
     </div>
     <h3>Available Candies</h3>
     <div class="subsection-content">
-
+      {% if candies.count %}
+        {% for candy in candies.all %}
+          <div class="candy-container">
+            <div class="color-block" style="background-color: {{ candy.color }}"></div>
+            <a href="{% url 'candy-detail' candy.id %}">
+              <p>A {{ candy.color }} {{ candy.name }}</p>
+            </a>
+            <form action="" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Give candy</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="all-candies">
+          {{ fish.name }} already has all the available candies 🤢
+        </p>
+      {% endif %}
     </div>
   </section>
 </div>

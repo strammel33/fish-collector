@@ -18,9 +18,11 @@ def fish_index(request):
 
 def fish_detail(request, fish_id):
   fish = Fish.objects.get(id=fish_id)
+  candies_fish_doesnt_have = Candy.objects.exclude(id__in = fish.candies.all().values_list('id'))
   exercise_form = ExerciseForm()
   return render(request, 'fishes/detail.html', { 
-    'fish': fish, 'exercise_form': exercise_form })
+    'fish': fish, 'exercise_form': exercise_form, 'candies': candies_fish_doesnt_have 
+  })
 
 def add_exercise(request, fish_id):
   form = ExerciseForm(request.POST)
