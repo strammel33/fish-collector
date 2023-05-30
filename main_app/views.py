@@ -49,7 +49,13 @@ class CandyCreate(CreateView):
 class CandyList(ListView):
   model = Candy
 
-
 class CandyDetail(DetailView):
   model = Candy
 
+class CandyUpdate(UpdateView):
+  model = Candy
+  fields = ['name', 'color']
+
+class CandyDelete(DeleteView):
+  model = Candy
+  success_url = '/candies/'

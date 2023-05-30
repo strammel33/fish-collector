@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css" 
+  href="{% static 'css/candies/candy-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+<div class="card" style="border-color: {{ candy.color }}">
+  <div class="card-bg" style="background-color: {{ candy.color }}"></div>
+  <div class="card-content">
+    <h2>{{ candy.name }}</h2>
+    <p>A {{ candy.color }} candy</p>
+  </div>
+</div>
+<a href="{% url 'candy-update' candy.id %}" class="btn warn">Edit</a>
+<a href="{% url 'candy-delete' candy.id %}" class="btn danger">Delete</a>
+{% endblock %}
