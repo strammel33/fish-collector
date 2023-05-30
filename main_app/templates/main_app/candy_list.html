@@ -17,7 +17,7 @@
 <section class="card-container">
   {% for candy in candy_list %}
   <div class="card" style="border-color: {{ candy.color }}">
-    <div class="card-bg" style="border-color: {{ candy.color }}"></div>
+    <div class="card-bg" style="background-color: {{ candy.color }}"></div>
     <a href="{% url 'candy-detail' candy.id %}">
       <div class="card-content">
         <h2>{{ candy.name }}</h2>
