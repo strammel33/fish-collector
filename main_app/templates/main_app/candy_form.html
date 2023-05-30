@@ -7,18 +7,19 @@
 
 {% block content %}
 <div class="page-header">
-  {% if fish %}
-    <h1>Edit {{ fish.name }}</h1>
+  {% if object %}
+    <h1>Edit {{object.name}}</h1>
   {% else %}
-    <h1>Add a Fish</h1>
-  {% endif %}  
+    <h1>Add a Candy</h1>
+  {% endif %}
   <img src="{% static 'images/flying-fish.png' %}" alt="A flying fish"/>
 </div>
-<form action="" method="post" class="form-container">
-  {% csrf_token%}
+<form action="" method="post" class="form-container" autocomplete="off">
+  {% csrf_token %}
   <table>
     {{ form.as_table }}
   </table>
   <button type="submit" class="btn submit">Submit!</button>
 </form>
+
 {% endblock %}
