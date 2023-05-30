@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 TIMES = (
   ('A', 'AM'),
@@ -18,6 +19,9 @@ class Fish(models.Model):
   
   def get_absolute_url(self):
       return reverse("fish-detail", kwargs={"fish_id": self.id})
+  
+  def exercised_today(self):
+    return self.exercise_set.filter(date=date.today()).count() >= len(TIMES)
 
 class Exercise(models.Model):
   date = models.DateField('Exercise date')

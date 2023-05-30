@@ -39,7 +39,7 @@
   </div>
 </section>
 <div class="exercise-toy-container">
-  <selction class="exercises">
+  <section class="exercises">
     <div class="subsection-title">
       <h2>Workouts</h2>
     </div>
@@ -49,6 +49,11 @@
       method="post" 
       class="subsection-content"
     >
+      {% if fish.exercised_today %}
+        <p class="exercised">{{fish.name}} is fit!</p>
+      {% else %}
+        <p class="not-exercised">{{fish.name}} is feeling lazy!</p>
+      {% endif %}
       {% csrf_token%}
       {{ exercise_form.as_p }}
       <button type="submit" class="btn submit">Add Exercise</button>
@@ -72,6 +77,7 @@
       <div class="subsection-content">
         <p>{{fish.name}} doesn't exercise 😥</p>
       </div>
-  </selction>
+    {% endif %}
+  </section>
 </div>
 {% endblock %}
