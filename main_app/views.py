@@ -40,6 +40,10 @@ def assoc_candy(request, fish_id, candy_id):
 class FishCreate(CreateView):
   model = Fish
   fields = ['name', 'species', 'description', 'age']
+  
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
 class FishUpdate(UpdateView):
   model = Fish
