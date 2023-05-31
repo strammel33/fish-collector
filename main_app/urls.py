@@ -16,5 +16,5 @@ urlpatterns = [
   path('candies/', views.CandyList.as_view(), name='candy-index'),
   path('candies/<int:pk>/update/', views.CandyUpdate.as_view(), name='candy-update'),
   path('candies/<int:pk>/delete/', views.CandyDelete.as_view(), name='candy-delete'),
-  path('accounts/signup/', views.signup, name='signup')
+  path('accounts/signup/', views.signup, name='signup'),
 ]

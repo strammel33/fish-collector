@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
-from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 from .models import Fish, Candy
 from .forms import ExerciseForm
 
@@ -16,7 +16,7 @@ def about(request):
   return render(request, 'about.html')
 
 def fish_index(request):
-  fishes = Fish.objects.all()
+  fishes = Fish.objects.filter(user=request.user)
   return render(request, 'fishes/index.html', { 'fishes': fishes })
 
 def fish_detail(request, fish_id):
@@ -80,7 +80,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('cat-index')
+      return redirect('fish-index')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
