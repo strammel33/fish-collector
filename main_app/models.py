@@ -52,4 +52,9 @@ class Exercise(models.Model):
   class Meta:
     ordering = ['-date']
 
-  
+class Photo(models.Model):
+  url = models.CharField(max_length=250)
+  fish = models.OneToOneField(Fish, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"Photo for fish_id: {self.fish_id} @{self.url}"

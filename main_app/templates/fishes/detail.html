@@ -22,7 +22,18 @@
 {% block content %}
 <section class="fish-container">
   <div class="fish-image">
-    <img src="{% static 'images/striped-fish.png' %}" alt="A striped fish">
+    {% if fish.photo.url %}
+    <img 
+      src="{{fish.photo.url}}" 
+      alt="A photo of {{fish.name}}"
+      class="usr-img"
+    >
+  {% else %}
+    <img 
+      src="{% static 'images/striped-fish.png' %}" 
+      alt="A striped fish"
+    >
+  {% endif %}
   </div>
   <div class="fish-details">
     <h1>{{ fish.name }}</h1>
@@ -31,11 +42,25 @@
     {% else %}
       <h2>A {{ fish.species }} baby.</h2>
     {% endif %}
-      <p>{{ fish.description }}</p>
-      <div class="fish-actions">
-        <a href="{% url 'fish-update' fish.id %}" class="btn warn">Edit</a>
-        <a href="{% url 'fish-delete' fish.id %}" class="btn danger">Delete</a>
-      </div>
+    <p>{{ fish.description }}</p>
+    <div class="fish-actions">
+      <a href="{% url 'fish-update' fish.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'fish-delete' fish.id %}" class="btn danger">Delete</a>
+    </div>
+    <h3>Change {{ fish.name }}'s photo</h3>
+    <p id="file-name"></p>
+    <form 
+      action="{% url 'add-photo' fish.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        Choose photo
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload Photo</button>
+    </form>
   </div>
 </section>
 <div class="exercise-candy-container">
