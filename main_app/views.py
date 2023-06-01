@@ -20,7 +20,7 @@ def about(request):
 @login_required
 def fish_index(request):
   fishes = Fish.objects.filter(user=request.user)
-  return render(request, 'fishes/index.html', { 'fishes': fishes })
+  return render(request, 'fishes/index.html', { 'fishes': fishes, 'name': request.user.username })
 
 @login_required
 def fish_detail(request, fish_id):
