@@ -95,8 +95,8 @@ nav li {
 
 .header-logo-container {
   margin: auto;
-  padding: 10px 20px 0;
-  max-width: 500px;
+  /* padding: 10px 20px 0; */
+  max-width: 300px;
 }
 
 .page-header {
@@ -197,7 +197,7 @@ nav li {
   }
 
   .header-logo-container {
-    width: 213px;
+    width: 200px;
   }
 
   .page-header h1 {
@@ -251,8 +251,8 @@ nav li {
   .header-logo-container {
     /* visual fix to help align logo */
     padding-top: 6px;
-    width: 256px;
-    height: 35px;
+    width: 200px;
+    height: 32px;
   }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
