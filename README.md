@@ -5,3 +5,5 @@ icons:
 <a href="https://www.flaticon.com/free-icons/flying-fish" title="flying fish icons">Flying fish icons created by Smashicons - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/fish" title="fish icons">Fish icons created by ultimatearm - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/fish" title="fish icons">Fish icons created by Smashicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/fish" title="fish icons">Fish icons created by Smashicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/fish" title="fish icons">Fish icons created by AmethystDesign - Flaticon</a>
